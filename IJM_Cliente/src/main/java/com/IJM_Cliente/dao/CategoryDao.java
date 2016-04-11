@@ -11,7 +11,7 @@ public interface CategoryDao {
 
 	public void delete(Category category);
 
-	public List<LinkedHashMap<String, Object>> findAll();
+	public Category[] findAll();
 
 	public Category findById(long id);
 

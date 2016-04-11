@@ -34,9 +34,9 @@ public class CategoryServiceImpl implements CategoryService{
 	}
 
 	@Override
-	public  List<Category> findAllCategories() {
-		List<LinkedHashMap<String, Object>> categoriesMap = categoryDao.findAll();
-		return CategoryMapper.deserializeList(categoriesMap);
+	public  Category[] findAllCategories() {
+		return categoryDao.findAll();
+		//return CategoryMapper.deserializeList(categoriesMap);
 	}
 
 	@Override

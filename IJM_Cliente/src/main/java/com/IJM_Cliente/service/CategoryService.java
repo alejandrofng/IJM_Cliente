@@ -12,7 +12,7 @@ public interface CategoryService {
 	
 	public void deleteCategory(long code);
 
-	public List<Category> findAllCategories();
+	public Category[] findAllCategories();
 	
 	public Category findCategoryByCode (long code);
 	

@@ -3,6 +3,8 @@ package com.IJM_Cliente.dao;
 import java.util.LinkedHashMap;
 import java.util.List;
 
+import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.client.RestTemplate;
 
@@ -25,11 +27,12 @@ public class CategoryDaoImpl extends AbstractDao implements CategoryDao{
 	}
 
 	@Override
-	public List<LinkedHashMap<String, Object>> findAll() {
+	public Category[] findAll() {
 		RestTemplate restTemplate = new RestTemplate();
         @SuppressWarnings("unchecked")
-        List<LinkedHashMap<String, Object>> categoriesMap = restTemplate.getForObject(REST_SERVICE_URI+"/category/", List.class);
-        return categoriesMap;
+      //  List<LinkedHashMap<String, Object>> categoriesMap = restTemplate.getForObject(REST_SERVICE_URI+"/category/", List.class);
+        ResponseEntity<Category[]> response = restTemplate.getForEntity(REST_SERVICE_URI+"/category/", Category[].class);
+        return response.getBody();
 	}
 
 	@Override

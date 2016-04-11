@@ -24,9 +24,9 @@ public class CategoryController {
 	public ModelAndView viewAll()
 	{
 		System.out.println("HOLA");
-		List<Category> categories = categoryService.findAllCategories();
+		Category[] categories = categoryService.findAllCategories();
 		ModelAndView model = new ModelAndView("/category/viewAll");
-		//model.addObject(categories);
+		model.addObject(categories);
 		return model;
 	}
 }
